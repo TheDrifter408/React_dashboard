@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Icon from "./Icon";
+import Header from "../components/Header";
+import Icon from "../components/Icon";
 import React from '../assets/react.svg'; 
 import MySQL from '../assets/mysql.svg';
 import NodeJS from '../assets/nodejs.svg';

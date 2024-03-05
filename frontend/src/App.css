@@ -15,6 +15,8 @@ header {
     height: 5vh;
     display: flex;
     align-items: center;
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.25);
+    border-radius:1rem;
 }
 .links-container {
     width:fit-content;
@@ -26,7 +28,7 @@ header {
 a {
     color:black;
     text-decoration: none;
-    transition: color 300ms ease-in, background-color 300ms ease-in;
+    transition: color 150ms ease-in, background-color 150ms ease-in;
     padding: 0.2rem 1.2rem;
     border-radius: 1rem;
 }
@@ -35,7 +37,7 @@ a:hover {
     background-color: var(--vista-blue);
 }
 a:visited {
-    color: purple;
+    color: black;
     text-decoration: none;
 }
 /*Section styles*/
@@ -55,7 +57,8 @@ section h1 {
     gap: 1rem;
 }
 .btn-container button {
-    background-color: var(--sky-blue);
+    color:white;
+    background-color: var(--vista-blue);
     border: none;
     padding: 0.6rem 1rem;
     border-radius: 1rem;
@@ -64,23 +67,37 @@ section h1 {
 }
 .btn-container button:hover {
     background-color: hsl(194, 79%, 32%);
-    color: white;
 }
 
 table {
-    border-collapse:collapse;
+    border-collapse:initial;
     margin-inline:auto;
+    width:min(90%,900px)
 }
 
 th {
-   background-color: var(--purple);
+   background-color:var(--purple);
    color: white;
    text-transform: capitalize;
+   padding: 0.6rem 1rem;
+   border-radius: 1rem;
+   margin-bottom: 0.5rem;
 }
-
-tr,th,td {
-    border: 1px solid black;
-    padding: 0.6rem 1rem;
+td {
+    border-radius:1rem;
+}
+tr,td {
+    border-radius:1rem;
+    padding: 0.6rem 1rem;   
+    text-align: center;
+}
+tr {
+    transition: transform ease 0.5s, box-shadow ease 0.5s;
+}
+/*Hover effect on row*/
+tr:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.25);
 }
 
 /*Icon styles */
@@ -98,6 +115,36 @@ tr,th,td {
 .icon-container:hover {
     color: white;
     background-color: var(--vista-blue);
+}
+
+/*Card styles*/
+.card-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.card-container a {
+    padding:0;
+    margin:0;
+}
+.card {
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.25);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    display:grid;
+    transition: transform 0.5s ease, box-shadow 0.5s  ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.25);
+}
+
+.card h3 {
+    text-align: left;
+}
+.card h4 {
+    text-align:right;
+    font-weight: var(--fw-900);
 }
 :root {
     --sky-blue:hsl(194, 100%, 66%);

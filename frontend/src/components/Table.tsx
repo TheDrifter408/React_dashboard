@@ -1,4 +1,4 @@
-import { Actor, Film } from "../types/dataTypes";
+import { Actor, Film, FilmCount } from "../types/dataTypes";
 
 type RowProps = {
   rows: [] | null;
@@ -48,8 +48,19 @@ function TableRows({rows,dataType}:RowProps){
           </tr>
         ))
       )
+    case 'FilmCount':
+      return(
+        rows?.map((row: FilmCount,idx:number) => (
+          <tr key={idx}>
+            <td>{row.first_name}</td>
+            <td>{row.last_name}</td>
+            <td>{row.no_of_films}</td>
+          </tr>
+        ))
+      )
   }
 }
+
 
 export default function Table({rows,fields,dataType}:TableProps) {
   return (

@@ -16,3 +16,9 @@ export interface Film extends Model {
     length:number;
     rating:string
 }
+
+export interface FilmCount {
+    first_name:string,
+    last_name:string,
+    no_of_films:number,
+}

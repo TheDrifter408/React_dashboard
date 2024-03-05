@@ -9,6 +9,7 @@ const PORT = 3000;
 
 let sequelize = require('./db/dbConfig.js');
 let initModels = require('./models/init-models.js');
+const { QueryTypes } = require("sequelize");
 
 let models = initModels(sequelize);
 
@@ -22,12 +23,16 @@ app.use(cors({
 }));
 
 app.get('/actors',async (req,res) => {
-  const actors = await models.actor.findAll({
-    attributes:{
-      exclude:['last_update']
-    }
+  const result = await sequelize.query(`SELECT first_name,last_name,COUNT(DISTINCT(title)) AS no_of_films FROM actor,film,film_actor WHERE actor.actor_id = film_actor.actor_id AND film.film_id = film_actor.film_id GROUP BY actor.actor_id`,{
+    logging:console.log,
+    plain:false,
+    raw:true,
+    type: QueryTypes.SELECT,
+    order:[
+      ['first_name','ASC']
+    ]
   });
-  res.status(200).send(actors);
+  res.status(200).send(result);
 })
 
 app.get('/films', async (req,res) => {

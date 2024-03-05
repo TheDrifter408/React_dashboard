@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, QueryTypes } = require("sequelize");
 
 const dbConfig = {
     database: 'sakila',
